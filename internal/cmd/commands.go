@@ -25,7 +25,6 @@ import (
 	"github.com/hashicorp/boundary/internal/cmd/commands/targetscmd"
 	"github.com/hashicorp/boundary/internal/cmd/commands/userscmd"
 	"github.com/hashicorp/boundary/internal/cmd/commands/version"
-
 	"github.com/mitchellh/cli"
 )
 
