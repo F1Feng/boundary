@@ -1,3 +1,3 @@
-module github.com/F1Feng/boundary/client
+module github.com/hashicorp/boundary/client
 
 go 1.17
