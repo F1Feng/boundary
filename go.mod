@@ -6,8 +6,6 @@ replace github.com/hashicorp/boundary/api => ./api
 
 replace github.com/hashicorp/boundary/sdk => ./sdk
 
-replace github.com/hashicorp/boundary/client => ./client
-
 require (
 	github.com/armon/go-metrics v0.3.9
 	github.com/bufbuild/buf v0.56.0
@@ -89,7 +87,6 @@ require (
 require github.com/hashicorp/go-dbw v0.0.0-20211215222256-2ff0d37184ff // this is a branch and should be updated before merging
 
 require (
-	github.com/hashicorp/boundary/client v0.0.0-00010101000000-000000000000
 	github.com/hashicorp/go-sockaddr v1.0.2
 	golang.org/x/sys v0.0.0-20211210111614-af8b64212486
 )
