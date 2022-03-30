@@ -1,8 +1,8 @@
 /*
  * @Author: F1
  * @Date: 2022-03-30 14:52:04
- * @LastEditTime: 2022-03-30 14:55:54
- * @FilePath: /client/connect.go
+ * @LastEditTime: 2022-03-30 17:49:45
+ * @FilePath: /boundary/client/connect.go
  * @Description:
  *
  * Copyright (c) 2022 by splashtop.com, All Rights Reserved.
@@ -27,7 +27,7 @@ func connectto(args []string) {
 	Run(args)
 }
 
-func Connect(authzToken string, scopeName string, scopeId string) (connectId string, err error) {
+func Connect(authzToken string, scopeName string, scopeId string, listenAddr string, listenPort string) (connectId string, err error) {
 	targetScope := "-target-scope-name"
 	uid, _ := uuid.NewUUID()
 	if len(scopeName) == 0 && len(scopeId) == 0 {
@@ -37,14 +37,32 @@ func Connect(authzToken string, scopeName string, scopeId string) (connectId str
 		targetScope = "-target-scope-id"
 	}
 	connectId = uid.String()
-	connectto([]string{
+
+	listenAddrStr := ""
+	if len(listenAddr) > 0 {
+		listenAddrStr = fmt.Sprintf("-listen-addr=%s", listenAddr)
+	}
+	listenPortStr := ""
+	if len(listenPort) > 0 {
+		listenPortStr = fmt.Sprintf("-listen-port=%s", listenPort)
+	}
+
+	args := []string{
 		connectId,
 		"connect",
 		"-authz-token",
 		authzToken,
 		targetScope,
 		scopeId,
-	})
+	}
+
+	if len(listenAddrStr) > 0 {
+		args = append(args, listenAddrStr)
+	}
+	if len(listenPortStr) > 0 {
+		args = append(args, listenPortStr)
+	}
+	connectto(args)
 
 	return connectId, nil
 }
