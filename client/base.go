@@ -22,6 +22,10 @@ import (
 
 var conns map[string]chan struct{}
 
+func init() {
+	conns = make(map[string]chan struct{})
+}
+
 // setupEnv parses args and may replace them and sets some env vars to known
 // values based on format options
 func setupEnv(args []string) (retArgs []string, format string, outputCurlString bool) {

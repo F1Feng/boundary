@@ -6,6 +6,8 @@ replace github.com/hashicorp/boundary/api => ./api
 
 replace github.com/hashicorp/boundary/sdk => ./sdk
 
+replace github.com/hashicorp/boundary/client => ./client
+
 require (
 	github.com/armon/go-metrics v0.3.9
 	github.com/bufbuild/buf v0.56.0
@@ -16,10 +18,10 @@ require (
 	github.com/golang-migrate/migrate/v4 v4.14.1
 	github.com/golang-sql/civil v0.0.0-20190719163853-cb61b32ac6fe
 	github.com/golang/protobuf v1.5.2
-	github.com/google/go-cmp v0.5.6
+	github.com/google/go-cmp v0.5.7
 	github.com/grpc-ecosystem/go-grpc-middleware v1.3.0
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.6.0
-	github.com/hashicorp/boundary/api v0.0.22
+	github.com/hashicorp/boundary/api v0.0.23
 	github.com/hashicorp/boundary/sdk v0.0.13
 	github.com/hashicorp/cap v0.1.1
 	github.com/hashicorp/dawdle v0.4.0
@@ -71,7 +73,7 @@ require (
 	github.com/stretchr/testify v1.7.0
 	github.com/zalando/go-keyring v0.1.1
 	go.uber.org/atomic v1.9.0
-	golang.org/x/crypto v0.0.0-20211117183948-ae814b36b871
+	golang.org/x/crypto v0.0.0-20220313003712-b769efc7c000
 	golang.org/x/term v0.0.0-20210916214954-140adaaadfaf
 	golang.org/x/tools v0.1.8-0.20211102182255-bb4add04ddef
 	google.golang.org/genproto v0.0.0-20210903162649-d08c68adba83
@@ -143,6 +145,7 @@ require (
 	github.com/google/shlex v0.0.0-20191202100458-e7afc7fbc510 // indirect
 	github.com/google/uuid v1.3.0 // indirect
 	github.com/googleapis/gax-go/v2 v2.0.5 // indirect
+	github.com/hashicorp/boundary/client v0.0.0-00010101000000-000000000000 // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
 	github.com/hashicorp/go-immutable-radix v1.1.0 // indirect
 	github.com/hashicorp/go-plugin v1.0.1 // indirect
