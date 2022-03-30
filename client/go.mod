@@ -4,6 +4,7 @@ go 1.17
 
 require (
 	github.com/fatih/color v1.13.0
+	github.com/google/uuid v1.3.0
 	github.com/hashicorp/boundary v0.7.6
 	github.com/hashicorp/boundary/api v0.0.23
 	github.com/mattn/go-colorable v0.1.12
@@ -56,7 +57,6 @@ require (
 	github.com/golang/snappy v0.0.1 // indirect
 	github.com/google/go-cmp v0.5.7 // indirect
 	github.com/google/shlex v0.0.0-20191202100458-e7afc7fbc510 // indirect
-	github.com/google/uuid v1.3.0 // indirect
 	github.com/googleapis/gax-go/v2 v2.0.5 // indirect
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.6.0 // indirect
 	github.com/hashicorp/boundary/sdk v0.0.13 // indirect
