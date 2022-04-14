@@ -5,7 +5,6 @@
  * @FilePath: /boundary/cmd/boundary-client/main.go
  * @Description:
  *
- * Copyright (c) 2022 by splashtop.com, All Rights Reserved.
  */
 
 package main

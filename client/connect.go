@@ -5,7 +5,6 @@
  * @FilePath: /boundary/client/connect.go
  * @Description:
  *
- * Copyright (c) 2022 by splashtop.com, All Rights Reserved.
  */
 package client
 
