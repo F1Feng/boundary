@@ -350,9 +350,9 @@ func Format(ui cli.Ui) string {
 	}
 
 	format := os.Getenv(EnvBoundaryCLIFormat)
-	if format == "" {
-		format = "table"
-	}
+	// if format == "" {
+	// 	format = "table"
+	// }
 
 	return format
 }

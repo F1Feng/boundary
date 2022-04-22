@@ -1,7 +1,7 @@
 /*
  * @Author: F1
  * @Date: 2022-03-30 16:59:40
- * @LastEditTime: 2022-03-30 16:59:41
+ * @LastEditTime: 2022-04-22 15:24:16
  * @FilePath: /boundary/client/base.go
  * @Description:
  *
@@ -92,9 +92,6 @@ func setupEnv(args []string) (retArgs []string, format string, outputCurlString 
 	}
 	// Lowercase for consistency
 	format = strings.ToLower(format)
-	if format == "" {
-		format = "table"
-	}
 
 	return args, format, outputCurlString
 }
@@ -166,12 +163,12 @@ func RunCustom(args []string, runOpts *RunOptions) int {
 		Format: format,
 	}
 
-	switch format {
-	case "table", "json":
-	default:
-		ui.Error(fmt.Sprintf("Invalid output format: %s", format))
-		return 1
-	}
+	// switch format {
+	// case "table", "json":
+	// default:
+	// 	ui.Error(fmt.Sprintf("Invalid output format: %s", format))
+	// 	return 1
+	// }
 
 	hiddenCommands := []string{"version"}
 
@@ -179,27 +176,27 @@ func RunCustom(args []string, runOpts *RunOptions) int {
 
 	conns[targetId] = cmd.ShutdownCh
 
-	cli := &cli.CLI{
-		Name: "boundary",
-		Args: args,
-		Commands: map[string]cli.CommandFactory{
-			"connect": func() (cli.Command, error) {
-				return &connect.Command{
-					Command: cmd,
-					Func:    "connect",
-				}, nil
-			},
-		},
-		HelpFunc: groupedHelpFunc(
-			cli.BasicHelpFunc("boundary"),
-		),
-		HelpWriter:                 runOpts.Stderr,
-		HiddenCommands:             hiddenCommands,
-		Autocomplete:               true,
-		AutocompleteNoDefaultFlags: true,
-	}
-
 	go func() {
+		cli := &cli.CLI{
+			Name: "boundary",
+			Args: args,
+			Commands: map[string]cli.CommandFactory{
+				"connect": func() (cli.Command, error) {
+					return &connect.Command{
+						Command: cmd,
+						Func:    "connect",
+					}, nil
+				},
+			},
+			HelpFunc: groupedHelpFunc(
+				cli.BasicHelpFunc("boundary"),
+			),
+			HelpWriter:                 runOpts.Stderr,
+			HiddenCommands:             hiddenCommands,
+			Autocomplete:               true,
+			AutocompleteNoDefaultFlags: true,
+		}
+
 		exitCode, err := cli.Run()
 		if outputCurlString {
 			if exitCode == 0 {

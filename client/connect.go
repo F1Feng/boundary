@@ -1,7 +1,7 @@
 /*
  * @Author: F1
  * @Date: 2022-03-30 14:52:04
- * @LastEditTime: 2022-03-30 17:49:45
+ * @LastEditTime: 2022-04-22 15:24:43
  * @FilePath: /boundary/client/connect.go
  * @Description:
  *
@@ -53,6 +53,7 @@ func Connect(authzToken string, scopeName string, scopeId string, listenAddr str
 		authzToken,
 		targetScope,
 		scopeId,
+		"-format=",
 	}
 
 	if len(listenAddrStr) > 0 {
