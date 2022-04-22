@@ -1,7 +1,7 @@
 /*
  * @Author: F1
  * @Date: 2022-03-30 16:59:40
- * @LastEditTime: 2022-04-22 15:24:16
+ * @LastEditTime: 2022-04-22 16:02:38
  * @FilePath: /boundary/client/base.go
  * @Description:
  *
@@ -282,7 +282,6 @@ func NewCommand(ui cli.Ui) *base.Command {
 	go func() {
 		<-ret.ShutdownCh
 
-		println("shutdown...")
 		cancel()
 	}()
 
